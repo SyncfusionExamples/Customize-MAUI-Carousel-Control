@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:carousel="clr-namespace:Syncfusion.Maui.Carousel;assembly=Syncfusion.Maui.Carousel"
+             xmlns:local="clr-namespace:CarouselSample"
+             x:Class="CarouselSample.MainPage">
+
+    <ContentPage.BindingContext>
+        <local:ViewModel/>
+    </ContentPage.BindingContext>
+
+    <StackLayout VerticalOptions="Center" Spacing="25">
+        <carousel:SfCarousel x:Name="carousel" 
+                             ItemsSource="{Binding CarouselItems}"
+                             AllowLoadMore="True"
+                             LoadMoreItemsCount="2"
+                             ScaleOffset="0.4">
+            <carousel:SfCarousel.LoadMoreView>
+                <Grid BackgroundColor="LightBlue">
+                    <Label
+                    Text="Show more"
+                    FontSize="14"
+                    TextColor="DeepPink"
+                    FontAttributes="Bold"
+                    HorizontalOptions="Center"
+                    VerticalOptions="Center" />
+                </Grid>
+            </carousel:SfCarousel.LoadMoreView>
+        </carousel:SfCarousel>
+
+        <Button Text="Load More" Clicked="Button_Clicked" WidthRequest="250"/>
+    </StackLayout>
+
+</ContentPage>
